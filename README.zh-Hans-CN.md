@@ -34,22 +34,22 @@ installed: /etc/systemd/system/v2ray@.service
 
 ### 安装和更新 V2Ray
 
-```
 // 安装可执行文件和 .dat 数据文件
-# bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+```
+# bash <(curl -L https://raw.githubusercontent.com/IceCodeNew/fhs-install-v2ray/master/install-release.sh)
 ```
 
 ### 安装最新发行的 geoip.dat 和 geosite.dat
 
-```
 // 只更新 .dat 数据文件
-# bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+```
+# bash <(curl -L https://raw.githubusercontent.com/IceCodeNew/fhs-install-v2ray/master/install-dat-release.sh)
 ```
 
 ### 移除 V2Ray
 
 ```
-# bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+# bash <(curl -L https://raw.githubusercontent.com/IceCodeNew/fhs-install-v2ray/master/install-release.sh) --remove
 ```
 
 ### 解决问题
@@ -66,6 +66,6 @@ installed: /etc/systemd/system/v2ray@.service
 
 ## 贡献
 
-请于 [develop](https://github.com/v2fly/fhs-install-v2ray/tree/develop) 分支进行，以避免对主分支造成破坏。
+请于 [develop](https://github.com/IceCodeNew/fhs-install-v2ray/tree/develop) 分支进行，以避免对主分支造成破坏。
 
 待确定无误后，两分支将进行合并。

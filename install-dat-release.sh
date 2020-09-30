@@ -17,10 +17,9 @@
 # export DAT_PATH='/usr/local/lib/v2ray'
 DAT_PATH=${DAT_PATH:-/usr/local/share/v2ray}
 
-DOWNLOAD_LINK_GEOIP="https://github.com/v2fly/geoip/releases/latest/download/geoip.dat"
-DOWNLOAD_LINK_GEOSITE="https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+DOWNLOAD_LINK_GEOIP="https://github.com/IceCodeNew/v2ray-rules-dat/releases/latest/download/geoip.dat"
+DOWNLOAD_LINK_GEOSITE="https://github.com/IceCodeNew/v2ray-rules-dat/releases/latest/download/geosite.dat"
 file_ip='geoip.dat'
-file_dlc='dlc.dat'
 file_site='geosite.dat'
 dir_tmp="$(mktemp -d)"
 
@@ -66,15 +65,17 @@ check_sum() {
 }
 
 install_file() {
-  install -m 644 "${dir_tmp}"/${file_dlc} "${DAT_PATH}"/${file_site}
+  install -m 644 "${dir_tmp}"/${file_site} "${DAT_PATH}"/${file_site}
+  [ -d '/mnt/resilio_sync/folders/v2ray-all-in-one' ] && install -m 644 "${dir_tmp}"/${file_site} '/mnt/resilio_sync/folders/v2ray-all-in-one'/${file_site}
   install -m 644 "${dir_tmp}"/${file_ip} "${DAT_PATH}"/${file_ip}
+  [ -d '/mnt/resilio_sync/folders/v2ray-all-in-one' ] && install -m 644 "${dir_tmp}"/${file_ip} '/mnt/resilio_sync/folders/v2ray-all-in-one'/${file_ip}
   rm -r "${dir_tmp}"
 }
 
 main() {
   check_if_running_as_root
   download_files $DOWNLOAD_LINK_GEOIP $file_ip
-  download_files $DOWNLOAD_LINK_GEOSITE $file_dlc
+  download_files $DOWNLOAD_LINK_GEOSITE $file_site
   check_sum
   install_file
 }
